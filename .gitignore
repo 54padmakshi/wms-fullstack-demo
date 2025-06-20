@@ -17,6 +17,4 @@ npm-debug.log*
 # Uploaded files
 uploads/
 
-# Excel or CSV files
-*.xlsx
-*.csv
+
