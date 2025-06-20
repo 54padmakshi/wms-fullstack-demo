@@ -1,0 +1,22 @@
+# Node dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Build folders
+dist/
+build/
+
+# Logs
+npm-debug.log*
+
+# OS system files
+.DS_Store
+
+# Uploaded files
+uploads/
+
+# Excel or CSV files
+*.xlsx
+*.csv
