@@ -36,9 +36,14 @@ const UploadForm = ({ onUpload, onClear }) => {
   }
 };
 
+const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://wms-backend-lna9.onrender.com'
+    : 'http://localhost:5000';
+
   const handleClear = async () => {
     try {
-      await axios.delete('http://localhost:5000/api/sales/clear');
+     await axios.delete(`${BASE_URL}/api/sales/clear`);
       onClear(); // Trigger refresh after delete
     } catch (err) {
       console.error('Clear failed:', err);

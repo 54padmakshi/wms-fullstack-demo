@@ -4,11 +4,16 @@ import axios from 'axios';
 function DataTable(refresh) {
   const [data, setData] = useState([]);
 
+  const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://wms-backend-lna9.onrender.com'
+    : 'http://localhost:5000';
+
    useEffect(() => {
     // This must run every time component is mounted
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/sales/all');
+        const res = await axios.get(`${BASE_URL}/api/sales/all`);
         setData(res.data);
       
       } catch (err) {

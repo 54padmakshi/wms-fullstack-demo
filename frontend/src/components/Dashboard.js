@@ -5,8 +5,13 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 function Dashboard(refresh) {
   const [chartData, setChartData] = useState([]);
 
+  const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://wms-backend-lna9.onrender.com'
+    : 'http://localhost:5000';
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/sales/all').then(res => {
+    axios.get(`${BASE_URL}/api/sales/all`).then(res => {
       const count = {};
       res.data.forEach(row => {
         count[row.msku] = (count[row.msku] || 0) + row.quantity;
