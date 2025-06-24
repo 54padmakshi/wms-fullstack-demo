@@ -4,12 +4,18 @@ import axios from 'axios';
 const UploadForm = ({ onUpload, onClear }) => {
   const [file, setFile] = useState(null);
 
+  
+const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://wms-backend-lna9.onrender.com'
+    : 'http://localhost:5000';
+
  const handleUpload = async () => {
   const formData = new FormData();
   formData.append('file', file);
 
   try {
-    const res = await axios.post('http://localhost:5000/api/sales/upload', formData, {
+    const res = await axios.post(`${BASE_URL}/api/sales/upload`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
         onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
@@ -36,10 +42,6 @@ const UploadForm = ({ onUpload, onClear }) => {
   }
 };
 
-const BASE_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://wms-backend-lna9.onrender.com'
-    : 'http://localhost:5000';
 
   const handleClear = async () => {
     try {
