@@ -11,7 +11,7 @@ app.use(express.json());
 
 // ✅ Root route to confirm backend is up
 app.get('/', (req, res) => {
-  res.send('✅ Backend is running!');
+  res.send(' yes ! ✅ Backend is running!');
 });
 
 //connect to mongoDB
