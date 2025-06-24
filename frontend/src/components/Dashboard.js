@@ -20,7 +20,7 @@ function Dashboard(refresh) {
       setChartData(chart);
     });
   // To clear data on refresh (e.g., after Clear Page):
-    return () => setChartData([]); }, [refresh]);
+    return () => setChartData([]); }, [refresh, BASE_URL]);
 
   return (
     <BarChart width={800} height={400} data={chartData}>

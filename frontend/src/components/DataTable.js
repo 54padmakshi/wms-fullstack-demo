@@ -21,7 +21,7 @@ function DataTable(refresh) {
       }
     }; fetchData();
 return () => setData([]);  
-}, [refresh]);
+}, [refresh, BASE_URL]);
 
   return (
    
